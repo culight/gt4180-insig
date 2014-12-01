@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.gatech.gt4823" >
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="com.google.android.glass.permission.DEVELOPMENT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:label="@string/app_name"
+        android:name=".data.utilities.InsigApp">
+        <activity
+            android:name="edu.gatech.gt4823.presentation.authentication.AuthenticationActivity"
+            android:icon="@drawable/ic_glass_logo"
+            android:label="@string/app_name"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+            </intent-filter>
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/voice_main" />
+        </activity>
+        <activity android:name=".presentation.splash_screen.SplashScreenLayoutActivity"
+            android:exported="true"
+            />
+        <activity android:name=".presentation.data_collection.PatientProfileActivity"
+            android:exported="true"
+            />
+        <activity android:name=".data.data_collection.metadata.PhotoActivity"
+            android:exported="true"
+            />
+        <activity android:name=".data.data_collection.metadata.VideoActivity"
+            android:exported="true"
+            />
+        <activity android:name=".data.data_collection.metadata.AudioActivity"
+            android:exported="true"
+            />
+        <activity android:name=".data.data_collection.ListenerActivity"
+            android:exported="true"
+            />
+    </application>
+
+</manifest>

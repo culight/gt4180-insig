@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- patient profile segments - "Enter All" -->
+    <item
+        android:id="@+id/enter_all"
+        android:title="@string/enter_all">
+        <menu>
+            <item
+                android:id="@+id/vitals_menu_item"
+                android:title="@string/patient_vitals"/>
+            <item
+                android:id="@+id/patient_info_menu_item"
+                android:title="@string/patient_information"/>
+        </menu>
+    </item>
+
+    <!-- vitals - "Vitals" -->
+    <item
+        android:id="@+id/vitals_options"
+        android:title="@string/vitals_options">
+        <menu>
+            <item
+                android:id="@+id/hr_menu_item"
+                android:title="@string/heart_rate"/>
+            <item
+                android:id="@+id/bp_menu_item"
+                android:title="@string/blood_pressure"/>
+            <item
+                android:id="@+id/res_menu_item"
+                android:title="@string/respiration"/>
+            <item
+                android:id="@+id/sao2_menu_item"
+                android:title="@string/sao2"/>
+        </menu>
+    </item>
+
+    <!-- patient id - "Patient Info" -->
+    <item
+        android:id="@+id/info_options"
+        android:title="@string/info_options">
+        <menu>
+            <item
+                android:id="@+id/name_menu_item"
+                android:title="@string/patient_name"/>
+            <item
+                android:id="@+id/id_menu_item"
+                android:title="@string/patient_id"/>
+            <item
+                android:id="@+id/dispatch_menu_item"
+                android:title="@string/dispatch_num"/>
+        </menu>
+    </item>
+
+    <!-- patient status - "Patient Status" -->
+    <item
+        android:id="@+id/status_options"
+        android:title="@string/status_options">
+        <menu>
+            <item
+                android:id="@+id/injury_menu_item"
+                android:title="@string/patient_injury"/>
+            <item
+                android:id="@+id/complaints_menu_item"
+                android:title="@string/patient_complaints"/>
+        </menu>
+    </item>
+
+    <!-- app navigation -->
+    <item
+        android:id="@+id/back_to_main"
+        android:title="@string/back_to_main"/>
+    <item
+        android:id="@+id/go_back"
+        android:title="@string/go_back"/>
+
+</menu>

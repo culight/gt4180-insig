@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InsigApp</string>
+    <string name="title_activity_home">Neutral Page</string>
+    <string name="hello_world">*development mode*</string>
+    <string name="main_trigger">start insig</string>
+
+    <!-- Splash screen -->
+    <string name="username_muted">username</string>
+    <string name="password_muted">password</string>
+
+    <!-- Voice-control keywords -->
+    <!-- Splash Screen -->
+    <string name="capture">capture</string>
+    <string name="patient_profile">patient data</string>
+    <string name="take_picture">photo</string>
+    <string name="record_video">video</string>
+    <string name="show_routes">show routes</string>
+    <string name="take_note">audio</string>
+    <string name="metadata_profile">access metadata</string>
+
+    <!-- App Navigation -->
+    <string name="back_to_main">go back to main</string>
+    <string name="go_back">never mind</string>
+    <string name="exit">exit insig</string>
+    <string name="restart">restart insig</string>
+
+        <!-- Patient Profile segments -->
+        <string name="enter_all">enter all</string>
+        <string name="patient_vitals">vitals</string>
+        <string name="patient_information">patient info</string>
+        <string name="patient_status">patient status</string>
+
+        <!-- Metadata Profile segments -->
+        <string name="metadata_videos">videos</string>
+        <string name="metadata_photos">photos</string>
+        <string name="metadata_message">messages</string>
+        <string name="metadata_call_info">call info</string>
+    
+            <!-- patient vitals -->
+            <string name="vitals_options">vitals</string>
+            <string name="heart_rate">pulse</string>
+            <string name="blood_pressure">blood pressure</string>
+            <string name="respiration">respiration</string>
+            <string name="sao2">oxygen saturation</string>
+    
+            <!-- patient identification -->
+            <string name="info_options">patient info</string>
+            <string name="patient_name">patient name</string>
+            <string name="patient_id">patient id</string>
+            <string name="patient_age">age</string>
+            <string name="patient_sex">sex</string>
+
+            <!-- patient status -->
+            <string name="status_options">patient status</string>
+            <string name="patient_injury">injury</string>
+            <string name="patient_complaints">complaints</string>
+
+            <!-- call info -->
+            <string name="agency">agency</string>
+            <string name="unit">unit</string>
+            <string name="dispatch_num">dispatch number</string>
+
+</resources>

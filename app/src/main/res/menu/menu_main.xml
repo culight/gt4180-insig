@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/patient_profile"
+        android:title="@string/patient_profile"/>
+    <item
+        android:id="@+id/metadata_profile"
+        android:title="@string/metadata_profile"/>
+    <item
+        android:id="@+id/capture"
+        android:title="@string/capture">
+        <menu>
+            <item
+                android:id="@+id/take_picture"
+                android:title="@string/take_picture"/>
+            <item
+                android:id="@+id/record_video"
+                android:title="@string/record_video"/>
+            <item
+                android:id="@+id/record_audio"
+                android:title="@string/take_note"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/go_back"
+        android:title="@string/go_back"/>
+    <item
+        android:id="@+id/exit"
+        android:title="@string/exit"/>
+    <item
+        android:id="@+id/restart"
+        android:title="@string/restart"/>
+</menu>

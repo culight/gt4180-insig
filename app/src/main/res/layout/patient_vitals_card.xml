@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Blood Pressure: "
+        android:id="@+id/bpLabel"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bloodPressureText"
+        android:layout_toEndOf="@+id/bpLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/bpLabel"
+        android:layout_alignBottom="@+id/bpLabel"
+        android:layout_toStartOf="@id/bloodPressureText"
+        android:textColor="@android:color/holo_green_light"
+        android:background="#80000000"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pulse: "
+        android:id="@+id/plsText"
+        android:textSize="25dp"
+        android:layout_below="@+id/bpLabel"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pulseText"
+        android:maxHeight="5dp"
+        android:layout_alignTop="@+id/plsText"
+        android:layout_toEndOf="@+id/plsText"
+        android:layout_alignBottom="@+id/plsText"
+        android:textColor="@android:color/holo_green_light"
+        android:background="#80000000"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Respiration: "
+        android:id="@+id/resText"
+        android:textSize="25dp"
+        android:layout_below="@+id/plsText"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/respirationText"
+        android:layout_toEndOf="@+id/resText"
+        android:layout_alignTop="@+id/resText"
+        android:textColor="@android:color/holo_green_light"
+        android:background="#80000000"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="SaO2: "
+        android:id="@+id/oxText"
+        android:textSize="25dp"
+        android:layout_toStartOf="@+id/pulseText"
+        android:layout_below="@+id/resText"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sao2Text"
+        android:maxHeight="5dp"
+        android:layout_alignTop="@+id/oxText"
+        android:layout_toEndOf="@+id/plsText"
+        android:layout_alignBottom="@+id/oxText"
+        android:textColor="@android:color/holo_green_light"
+        android:background="#80000000"
+        android:textSize="25sp" />
+</RelativeLayout>
