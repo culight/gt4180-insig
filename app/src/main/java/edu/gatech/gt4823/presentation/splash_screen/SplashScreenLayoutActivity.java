@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 import com.google.android.glass.view.WindowUtils;
 
@@ -26,6 +27,7 @@ public final class SplashScreenLayoutActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().requestFeature(WindowUtils.FEATURE_VOICE_COMMANDS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.splash_screen_card);
     }
 
@@ -35,15 +37,12 @@ public final class SplashScreenLayoutActivity extends Activity {
             getMenuInflater().inflate(R.menu.menu_main, menu);
             return true;
         }
-        Log.d(TAG,"panel menu inflated");
-        // Pass through to super to setup touch menu.
         return super.onCreatePanelMenu(featureId, menu);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        Log.d(TAG,"menu inflated");
         return true;
     }
 

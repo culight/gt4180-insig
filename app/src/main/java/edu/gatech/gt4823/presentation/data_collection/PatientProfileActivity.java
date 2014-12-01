@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.google.android.glass.view.WindowUtils;
@@ -62,6 +63,7 @@ public class PatientProfileActivity extends Activity {
 
         // set menu for this activity
         getWindow().requestFeature(WindowUtils.FEATURE_VOICE_COMMANDS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // set up the cards for the patient info, patient status, and vitals
         mCardScroller = new CardScrollView(this);
