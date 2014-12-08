@@ -18,7 +18,7 @@
     <string name="record_video">video</string>
     <string name="show_routes">show routes</string>
     <string name="take_note">audio</string>
-    <string name="metadata_profile">access metadata</string>
+    <string name="metadata_profile">patient story</string>
 
     <!-- App Navigation -->
     <string name="back_to_main">go back to main</string>
@@ -37,6 +37,8 @@
         <string name="metadata_photos">photos</string>
         <string name="metadata_message">messages</string>
         <string name="metadata_call_info">call info</string>
+        <string name="transfer_care">transfer patient care</string>
+        <string name="captions">add a caption</string>
     
             <!-- patient vitals -->
             <string name="vitals_options">vitals</string>
@@ -54,7 +56,7 @@
 
             <!-- patient status -->
             <string name="status_options">patient status</string>
-            <string name="patient_injury">injury</string>
+            <string name="patient_injury">mechanism of injury</string>
             <string name="patient_complaints">complaints</string>
 
             <!-- call info -->

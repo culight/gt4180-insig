@@ -27,7 +27,6 @@ public class AuthenticationActivity extends Activity {
     public Context context, dialogContext;
     public TextView output;
     public ProgressBar progress;
-
     public boolean authenticated;
 
     @Override
@@ -48,7 +47,7 @@ public class AuthenticationActivity extends Activity {
         progress.setVisibility(View.INVISIBLE);
 
         loginDialog = createLoginDialog();
-        loginDialog.show();
+        //loginDialog.show();
 
         authenticated = false;
 
@@ -71,9 +70,6 @@ public class AuthenticationActivity extends Activity {
         return dialog;
     }
 
-    /*
-
-     */
     public void loginOnClick(View v) {
         loginDialog.hide();
         output.setText("Authenticating");

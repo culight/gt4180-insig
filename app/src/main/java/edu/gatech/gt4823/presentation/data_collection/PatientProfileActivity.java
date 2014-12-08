@@ -36,16 +36,13 @@ public class PatientProfileActivity extends Activity {
 
     private String speechResult[];
     private String compArray[], injArray[];
+    private int entryId = 0, numOfResults;
+    private int compEntry = 0, injEntry = 0;
+    private Intent intent;
     private EditText bp, pls, res, sao2;
     private EditText patId, patName, dispNum;
     private EditText patComp, patInj;
-
-    private int entryId = 0, numOfResults;
-    private int compEntry = 0, injEntry = 0;
-
-    private Intent intent;
     private InsigApp myApp;
-
     private CardScrollView mCardScroller;
     private List<CardBuilder> mCards;
 
@@ -53,17 +50,13 @@ public class PatientProfileActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        myApp = (InsigApp)getApplicationContext();
-
-        speechResult = new String[10];
-        compArray = new String[10];
-        injArray = new String[10];
-
-        createCards();
-
-        // set menu for this activity
+        // set the "ok glass" menu and keep it on
         getWindow().requestFeature(WindowUtils.FEATURE_VOICE_COMMANDS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        myApp = (InsigApp)getApplicationContext();
+
+        createCards();
 
         // set up the cards for the patient info, patient status, and vitals
         mCardScroller = new CardScrollView(this);
@@ -72,6 +65,10 @@ public class PatientProfileActivity extends Activity {
 
         // set the view
         setContentView(mCardScroller);
+
+        speechResult = new String[10];
+        compArray = new String[10];
+        injArray = new String[10];
 
         bp = (EditText) findViewById(R.id.bloodPressureText);
         pls = (EditText) findViewById(R.id.pulseText);
@@ -91,7 +88,7 @@ public class PatientProfileActivity extends Activity {
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // check if the request code is same as what is passed here it is 2
+        // receive the captured text and set it to the correct UI element
         if(requestCode==2)
         {
             String message[] = data.getStringArrayExtra("SPEECH");
@@ -104,6 +101,7 @@ public class PatientProfileActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        // load the previously entered data in this activity
         initializeSavedData();
     }
 
@@ -122,9 +120,11 @@ public class PatientProfileActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // save the entered data to be accessed later
         myApp.setSavedVitalsData(bp,pls,res,sao2);
         myApp.setSavedInfoData(patId,patName,dispNum);
         myApp.setSavedStatusData(patComp,patInj);
+        //myApp.updateDatabase();
     }
 
     private void createCards() {
@@ -227,6 +227,7 @@ public class PatientProfileActivity extends Activity {
 
             default:
                 Log.d(TAG,"not a valid entry");
+                break;
         }
     }
 
@@ -318,6 +319,7 @@ public class PatientProfileActivity extends Activity {
                     entryId = 5;
                     break;
 
+                // patient info individually
                 case R.id.id_menu_item:
                     intent = new Intent(this, ListenerActivity.class);
                     startActivityForResult(intent,2);
@@ -336,6 +338,7 @@ public class PatientProfileActivity extends Activity {
                     entryId = 8;
                     break;
 
+                // patient info grouped
                 case R.id.patient_info_menu_item:
                     numOfResults = 3;
                     intent = new Intent(this, ListenerActivity.class);
@@ -344,6 +347,7 @@ public class PatientProfileActivity extends Activity {
                     entryId = 9;
                     break;
 
+                // patient status
                 case R.id.complaints_menu_item:
                     intent = new Intent(this, ListenerActivity.class);
                     startActivityForResult(intent,2);
@@ -354,6 +358,7 @@ public class PatientProfileActivity extends Activity {
                     startActivityForResult(intent,2);
                     entryId = 11;
                     break;
+
                 default:
                     return true;
             }

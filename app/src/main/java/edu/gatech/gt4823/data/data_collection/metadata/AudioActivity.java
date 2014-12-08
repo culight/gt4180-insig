@@ -15,6 +15,7 @@ import com.google.android.glass.touchpad.GestureDetector;
 import java.util.ArrayList;
 
 import edu.gatech.gt4823.R;
+import edu.gatech.gt4823.data.utilities.InsigApp;
 
 /**
  * Created by Demerrick on 11/19/2014.
@@ -22,16 +23,20 @@ import edu.gatech.gt4823.R;
 public class AudioActivity extends Activity {
 
     private static final String TAG = "AudioActivity: ";
+    private InsigApp myApp;
     private GestureDetector mGestureDetector;
     private SpeechRecognizer audioRecorder;
 
     private EditText resultField;
     private RadioButton indicatorButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.audio_card);
+
+        myApp = (InsigApp) getApplicationContext();
 
         resultField = (EditText) findViewById(R.id.editText);
         indicatorButton = (RadioButton) findViewById(R.id.audioRadioButton);
@@ -45,6 +50,7 @@ public class AudioActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+        myApp.setNotesData(resultField.getText().toString());
         if (audioRecorder != null)
             audioRecorder.destroy();
     }
@@ -59,7 +65,7 @@ public class AudioActivity extends Activity {
         }
 
         public void onRmsChanged(float rmsdB) {
-            Log.d(TAG, "onRmsChanged");
+            //Log.d(TAG, "onRmsChanged");
         }
 
         public void onBufferReceived(byte[] buffer) {

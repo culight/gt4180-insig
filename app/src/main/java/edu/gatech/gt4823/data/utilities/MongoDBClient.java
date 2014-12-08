@@ -2,6 +2,7 @@ package edu.gatech.gt4823.data.utilities;
 
 import android.util.Log;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -16,6 +17,8 @@ import org.json.JSONObject;
 import java.net.UnknownHostException;
 
 import edu.gatech.gt4823.domain.authentication.User;
+import edu.gatech.gt4823.domain.data_collection.metadata.call_info.CallModel;
+import edu.gatech.gt4823.domain.data_collection.patient.PatientModel;
 
 /**
  * MongoDBClient.java Handles MongoDB requests
@@ -23,13 +26,15 @@ import edu.gatech.gt4823.domain.authentication.User;
  * @Version 0.61
  */
 public class MongoDBClient {
-        private static final String TAG = "wcim.util:MongoClient.java";
+        private static final String TAG = "MongoDBClient: ";
 
         //Database
         private static final String DB_ADDR = "198.58.102.239"; // enter ip address
         private static final int DB_PORT = 27017;               // enter port number
         private static MongoClient mongoClient;
         private static DB db;
+        private DBCollection coll;
+
         private static int errorFlag = 0; //0: no error, 1: mongo timeout
 
         /**
@@ -45,6 +50,22 @@ public class MongoDBClient {
                 }
 
         }
+
+    /**
+     * Initializes the database and gets a collection to start using
+     * @return
+     */
+    public DBCollection getDBCollection() {
+        initialize();
+        return db.getCollection("test collection");
+    }
+
+    public void addDBEntry(CallModel call,PatientModel patientData, DBCollection coll) {
+        BasicDBObject doc = new BasicDBObject()
+                .append("call_data", call)
+                .append("patient_data", patientData);
+        coll.insert(doc);
+    }
 
     /**
      * Adapter for querying Account Match

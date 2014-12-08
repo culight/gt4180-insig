@@ -11,33 +11,36 @@ import com.google.android.glass.content.Intents;
 
 import java.io.File;
 
+import edu.gatech.gt4823.data.utilities.InsigApp;
+
 /**
  * Created by Demerrick on 11/19/2014.
  */
 public class PhotoActivity extends Activity{
     private static final int TAKE_PICTURE_REQUEST = 1;
     private String TAG = "PhotoActivity: ";
+    private InsigApp myApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myApp = (InsigApp) getApplicationContext();
         takePicture();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        finish();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == TAKE_PICTURE_REQUEST && resultCode == RESULT_OK) {
-            String thumbnailPath = data.getStringExtra(Intents.EXTRA_THUMBNAIL_FILE_PATH);
+            String thumbnailName = data.getStringExtra(Intents.EXTRA_THUMBNAIL_FILE_PATH);
             String picturePath = data.getStringExtra(Intents.EXTRA_PICTURE_FILE_PATH);
             processPictureWhenReady(picturePath);
-            // TODO: Process the metadata for the photo
-            // processed.
+            finish();
         }
 
         super.onActivityResult(requestCode, resultCode, data);
@@ -52,7 +55,7 @@ public class PhotoActivity extends Activity{
         final File pictureFile = new File(picturePath);
 
         if (pictureFile.exists()) {
-            // The picture is ready; process it.
+            myApp.setPhotoData(picturePath);
         } else {
             // The file does not exist yet. Before starting the file observer, you
             // can update your UI to let the user know that the application is
